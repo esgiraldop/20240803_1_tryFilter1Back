@@ -5,9 +5,9 @@ import {
     Column,
     DataType,
     AutoIncrement,
-    NotNull,
-    AllowNull,
+    HasMany,
 } from 'sequelize-typescript'
+import { Sale } from './sales.model';
 
 @Table({
     tableName: "users",
@@ -22,17 +22,23 @@ export class User extends Model {
     id!: number;
 
     @Column({
-        type: DataType.STRING
+        type: DataType.STRING,
+        allowNull: false
     })
     name!: string;
 
     @Column({
-        type: DataType.STRING
+        type: DataType.STRING,
+        allowNull: false,
+        unique: true,
     })
     email!: string;
 
     @Column({
-        type: DataType.STRING
+        type: DataType.STRING,
     })
     password!: string;
+
+    @HasMany(() => Sale)
+    sales!: Sale[];
 };

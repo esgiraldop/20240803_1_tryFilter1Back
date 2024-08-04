@@ -3,6 +3,9 @@ import { UserController } from "../controllers/user.controllers";
 
 const UserRoutes = Router();
 
-UserRoutes.get('/users', UserController.getAllUsers)
+UserRoutes.get('/', UserController.getAllUsers);
+UserRoutes.get('/:id', UserController.getUserById);
+UserRoutes.post('/', UserController.saveUser);
+UserRoutes.post('/login')
 
-export default UserRoutes
+export default UserRoutes;

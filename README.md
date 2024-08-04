@@ -24,6 +24,10 @@ npm install sequelize-typescript
 npm install @types/sequelize
 npm install dotenv
 npm install tsyringe
+npm install jsonwebtoken
+npm install @types/jsonwebtoken
+npm install cors
+npm install @types/cors
 ```
 
 4. Inicializar TypeScript
@@ -41,7 +45,9 @@ npx tsc --init
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
