@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import { SaleRepository } from "../repositories/sales.repository";
+import { SaleRepository } from "../repositories/sales.repositories";
 import { ISale } from "../interfaces/sales.interface";
 import { Sale } from "../models/sales.model";
 

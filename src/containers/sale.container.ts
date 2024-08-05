@@ -1,7 +1,7 @@
 import { container } from "tsyringe";
 import { SaleService } from "../services/sale.services";
-import { SaleRepository } from "../repositories/sales.repository";
-import { SaleController } from "../controllers/sale.controller";
+import { SaleRepository } from "../repositories/sales.repositories";
+import { SaleController } from "../controllers/sale.controllers";
 
 container.register(SaleController, {
     useClass: SaleController

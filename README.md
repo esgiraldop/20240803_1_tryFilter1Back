@@ -1,5 +1,8 @@
 # Paso a paso para iniciar un proyecto Node con TypeScript para una API RESTful
 
+## Página de http cats
+https://http.cat/
+
 ## Crear el proyecto
 
 1. Crear el directorio del proyecto
@@ -28,6 +31,7 @@ npm install jsonwebtoken
 npm install @types/jsonwebtoken
 npm install cors
 npm install @types/cors
+npm install csv-writter
 ```
 
 4. Inicializar TypeScript

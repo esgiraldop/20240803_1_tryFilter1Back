@@ -7,22 +7,26 @@ import { IUserData } from '../interfaces/user.interfaces';
 export class UserService{
 
     constructor(
-        @inject(UserRepository) private UserRepository:UserRepository
+        @inject(UserRepository) private userRepository:UserRepository
     ){ }
 
     async getAllUser():Promise<User[]>{
-        return await this.UserRepository.getAll()
+        return await this.userRepository.getAll()
     }
 
     async getUserById(id:string):Promise<User|null>{
-        return await this.UserRepository.getUser(id)
+        return await this.userRepository.getUser(id)
     }
 
+    async findByEmail(email:string): Promise<User | null> {
+    return await this.userRepository.getUserByEmail(email);
+    };
+
     async saveUser(userData:IUserData):Promise<IUserData|null>{
-        return await this.UserRepository.saveUser(userData)
+        return await this.userRepository.saveUser(userData)
     }
 
     async getProductsByUser(id:string):Promise<User|null>{
-        return await this.UserRepository.getProductsByUser(id)
+        return await this.userRepository.getProductsByUser(id)
     }
 }

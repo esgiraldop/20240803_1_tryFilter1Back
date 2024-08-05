@@ -15,6 +15,10 @@ export class UserRepository{
         return await User.findByPk(id)
     }
 
+    async getUserByEmail(email: string): Promise<User | null> {
+        return User.findOne({ where: { email } });
+      }
+
     async saveUser({name, email, password}:IUserData):Promise<IUserData|null>{
         try{
             console.log(`name: ${name}`)

@@ -1,6 +1,5 @@
 import { injectable, container } from "tsyringe";
-import { Request, Response } from "express";
-import { User } from "../models";
+import { Request, Response, NextFunction } from "express";
 import { UserService } from "../services/user.services";
 
 @injectable()
@@ -84,7 +83,7 @@ export class UserController {
         }
     }
 
-    static async getProductsByUser(req:Request, res:Response):Promise<any>{
+    static async getProductsByUser(req:Request, res:Response, next:NextFunction):Promise<any>{
         try{
             const userService = container.resolve(UserService);
             const productsByUser = await userService.getProductsByUser(req.params.id);
@@ -102,12 +101,7 @@ export class UserController {
                 )
             }
         }catch(error){
-            if(error instanceof Error){
-                res.status(500).json({
-                status: 500,
-                message: error.message
-            })
-            }
+            next(error);
         }
     }
 }
