@@ -83,4 +83,31 @@ export class UserController {
             }
         }
     }
+
+    static async getProductsByUser(req:Request, res:Response):Promise<any>{
+        try{
+            const userService = container.resolve(UserService);
+            const productsByUser = await userService.getProductsByUser(req.params.id);
+            if (!productsByUser) {
+                res.status(200).json({
+                    status: 200,
+                    message: "No user could be retrieved"
+                })
+            }else{
+                res.status(200).json({
+                    status: 200,
+                    message: "User retrieved succesfully",
+                    data: productsByUser
+                }
+                )
+            }
+        }catch(error){
+            if(error instanceof Error){
+                res.status(500).json({
+                status: 500,
+                message: error.message
+            })
+            }
+        }
+    }
 }

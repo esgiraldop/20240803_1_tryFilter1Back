@@ -1,6 +1,7 @@
-export interface ISale{
-    id?: number,
-    productID: number,
-    userID: number,
-    description: string
-}
+export interface ISale<T = any> {
+    id?: number;
+    userID: number;
+    productID: number;
+    description: string;
+    products?: T;
+  }

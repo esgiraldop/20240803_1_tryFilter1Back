@@ -7,5 +7,6 @@ UserRoutes.get('/', UserController.getAllUsers);
 UserRoutes.get('/:id', UserController.getUserById);
 UserRoutes.post('/', UserController.saveUser);
 UserRoutes.post('/login')
+UserRoutes.get('/:id/products', UserController.getProductsByUser);
 
 export default UserRoutes;

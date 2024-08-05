@@ -11,14 +11,18 @@ export class UserService{
     ){ }
 
     async getAllUser():Promise<User[]>{
-        return this.UserRepository.getAll()
+        return await this.UserRepository.getAll()
     }
 
     async getUserById(id:string):Promise<User|null>{
-        return this.UserRepository.getUser(id)
+        return await this.UserRepository.getUser(id)
     }
 
     async saveUser(userData:IUserData):Promise<IUserData|null>{
-        return this.UserRepository.saveUser(userData)
+        return await this.UserRepository.saveUser(userData)
+    }
+
+    async getProductsByUser(id:string):Promise<User|null>{
+        return await this.UserRepository.getProductsByUser(id)
     }
 }
